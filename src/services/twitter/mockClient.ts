@@ -14,8 +14,8 @@ export class MockTwitterClient {
       throw new Error("Simulated Twitter API failure");
     }
     return [
-      { id: "test1", text: "Test event 1" },
-      { id: "test2", text: "Test event 2" },
+      { id: "test1", text: "Test event 1", timestamp: Date.now(), location: "New York" },
+      { id: "test2", text: "Test event 2", timestamp: Date.now() + 1000, location: "London" },
     ];
   }
 }
