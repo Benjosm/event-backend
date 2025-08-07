@@ -1,9 +1,18 @@
 import { GeoCoordinates } from '../../types/GeoCoordinates';
+import { LRUCache } from './LRUCache';
+import config from '../../config/env';
 
 /**
  * Service to handle geocoding of location strings into geographic coordinates.
  */
 export class GeocodingService {
+  private cache: LRUCache<string, GeoCoordinates>;
+
+  constructor() {
+    const cacheCapacity = config.GEOCODING_CACHE_CAPACITY || 100;
+    this.cache = new LRUCache<string, GeoCoordinates>(cacheCapacity);
+  }
+
   /**
    * Resolves a location string into geographic coordinates.
    *
@@ -11,11 +20,27 @@ export class GeocodingService {
    * @returns A promise that resolves to the GeoCoordinates if successful, or null if the location cannot be determined.
    */
   async geocode(locationString: string): Promise<GeoCoordinates | null> {
-    // Placeholder for actual geocoding logic using a geocoding library.
-    // For now, simulate a successful geocoding result for demonstration.
+    // Validate input
+    if (!locationString || typeof locationString !== 'string') {
+      return null;
+    }
+
+    // Normalize location string for consistent caching
+    const normalizedLocation = locationString.trim().toLowerCase();
+
+    // Check cache first
+    const cachedResult = this.cache.get(normalizedLocation);
+    if (cachedResult) {
+      return { ...cachedResult }; // Return a copy to prevent mutation
+    }
+
+    // Cache miss: perform external geocoding
     try {
-      // Simulate asynchronous geocoding operation
-      const result = await this.performGeocoding(locationString);
+      const result = await this.performGeocoding(normalizedLocation);
+      if (result) {
+        // Store in cache for future requests
+        this.cache.set(normalizedLocation, { ...result });
+      }
       return result;
     } catch (error) {
       console.error(`Geocoding failed for location: ${locationString}`, error);
