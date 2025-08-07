@@ -1,0 +1,115 @@
+[
+// Cluster 1: Restaurant week events in Midtown Manhattan
+{
+"id": "event-1",
+"name": "Fine Dining Week Kickoff",
+"coordinates": {
+"latitude": 40.7580,
+"longitude": -73.9855
+},
+"category": "food"
+},
+{
+"id": "event-2",
+"name": "Wine Tasting at Oak & Vine",
+"coordinates": {
+"latitude": 40.7575,
+"longitude": -73.9845
+},
+"category": "food"
+},
+{
+"id": "event-3",
+"name": "Chef's Table Experience",
+"coordinates": {
+"latitude": 40.7585,
+"longitude": -73.9860
+},
+"category": "food"
+},
+
+// Cluster 2: Theater and arts events in Broadway area
+{
+"id": "event-4",
+"name": "Hamilton - Broadway Show",
+"coordinates": {
+"latitude": 40.7589,
+"longitude": -73.9851
+},
+"category": "arts"
+},
+{
+"id": "event-5",
+"name": "Modern Art Exhibition",
+"coordinates": {
+"latitude": 40.7570,
+"longitude": -73.9830
+},
+"category": "arts"
+},
+
+// Cluster 3: Tech meetup in Flatiron District
+{
+"id": "event-6",
+"name": "JavaScript Developers Meetup",
+"coordinates": {
+"latitude": 40.7401,
+"longitude": -73.9902
+},
+"category": "technology"
+},
+{
+"id": "event-7",
+"name": "Startup Pitch Night",
+"coordinates": {
+"latitude": 40.7405,
+"longitude": -73.9898
+},
+"category": "technology"
+},
+
+// Isolated events
+{
+"id": "event-8",
+"name": "Sunset Yoga in Central Park",
+"coordinates": {
+"latitude": 40.7829,
+"longitude": -73.9654
+},
+"category": "wellness"
+},
+{
+"id": "event-9",
+"name": "Baseball Game at Citi Field",
+"coordinates": {
+"latitude": 40.7567,
+"longitude": -73.8461
+},
+"category": "sports"
+},
+{
+"id": "event-10",
+"name": "Museum Tour at The Met",
+"coordinates": {
+"latitude": 40.7794,
+"longitude": -73.9632
+},
+"category": "arts"
+},
+
+// Invalid events for edge case testing
+{
+"id": "event-invalid-1",
+"name": "Event with missing coordinates",
+"category": "unknown"
+},
+{
+"id": "event-invalid-2",
+"name": "Event with invalid coordinates",
+"coordinates": {
+"latitude": 95,
+"longitude": 200
+},
+"category": "unknown"
+}
+]
