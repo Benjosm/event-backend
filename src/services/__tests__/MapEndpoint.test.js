@@ -171,17 +171,15 @@ describe('Map Endpoint /map', () => {
         status: 200
       });
       
-      // We need to intercept and simulate the JSON parsing error
-      // Since we can't easily simulate the ValueError in Python from JS,
-      // we'll test the general error handling behavior
-      
-      // For now, we'll assume the error handling in Python will catch this
-      // and return 503 as specified in the code
-      
-      // Act & Assert
-      // This test case is more difficult to simulate directly,
-      // so we'll focus on the other error cases that are easier to test
-      expect(true).toBe(true); // Placeholder
+      // Act
+      const response = await request(MAP_SERVICE_URL)
+        .get('/map')
+        .set('Accept', 'application/json');
+        
+      // Assert
+      expect(response.status).toBe(503);
+      expect(response.body).toHaveProperty('detail');
+      expect(response.body.detail).toBe('Service temporarily unavailable, please try again later');
     });
   });
   
