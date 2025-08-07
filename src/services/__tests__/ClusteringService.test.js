@@ -178,4 +178,67 @@ describe('ClusteringService', () => {
     expect(result).toHaveLength(0);
     expect(console.warn).toHaveBeenCalledTimes(2);
   });
+
+  describe('Integration Tests with Sample Data', () => {
+    let sampleEvents;
+    
+    beforeAll(async () => {
+      // Dynamically import the sample data
+      sampleEvents = await import('../../../data/sampleEvents.json');
+    });
+
+    it('should cluster real-world sample events correctly', () => {
+      const radius = 1000; // 1km radius
+      const result = clusterEvents(sampleEvents, radius);
+      
+      // Should return clustered events
+      expect(result).toBeInstanceOf(Array);
+      expect(result.length).toBeGreaterThan(0);
+      
+      // Should have fewer clusters than total valid events
+      const validEvents = sampleEvents.filter(e => e.coordinates && 
+        Math.abs(e.coordinates.latitude) <= 90 && 
+        Math.abs(e.coordinates.longitude) <= 180);
+      
+      const clusteredEvents = result.filter(e => e.clusterId);
+      const clusterIds = [...new Set(result.map(e => e.clusterId))];
+      
+      expect(clusteredEvents.length).toBe(validEvents.length);
+      expect(clusterIds.length).toBeLessThan(validEvents.length);
+      expect(clusterIds.length).toBeGreaterThan(1); // Multiple clusters expected
+    });
+
+    it('should generate valid cluster IDs for all clustered events', () => {
+      const radius = 1000;
+      const result = clusterEvents(sampleEvents, radius);
+      
+      result.forEach(event => {
+        expect(event.clusterId).toMatch(/^cluster_\d+_[a-zA-Z0-9]+$/);
+      });
+    });
+
+    it('should handle invalid coordinates with appropriate warnings', () => {
+      const radius = 1000;
+      
+      // Spy on console.warn
+      const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+      
+      clusterEvents(sampleEvents, radius);
+      
+      // Should warn about events with missing or invalid coordinates
+      expect(warnSpy).toHaveBeenCalled();
+      
+      const invalidEventCount = sampleEvents.filter(e => 
+        !e.coordinates || 
+        !e.coordinates.latitude || 
+        !e.coordinates.longitude || 
+        Math.abs(e.coordinates.latitude) > 90 || 
+        Math.abs(e.coordinates.longitude) > 180
+      ).length;
+      
+      expect(warnSpy).toHaveBeenCalledTimes(invalidEventCount);
+      
+      warnSpy.mockRestore();
+    });
+  });
 });
