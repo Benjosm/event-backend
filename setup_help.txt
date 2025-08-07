@@ -1,0 +1,18 @@
+Project setup investigation:
+
+After thorough examination, I've determined that the source code for this project is missing from the repository. The README files describe a complete project structure with specific files that should be present, but they are not found in the actual directories.
+
+Missing critical files:
+- event-web/package.json (required for npm install and frontend setup)
+- event-web/src/ directory (contains React components)
+- event-backend/pyproject.toml (required for Poetry and backend dependencies)
+- event-backend/app/ directory (contains FastAPI application code)
+- event-backend/tests/ directory (contains test files)
+
+Without these files, it is impossible to:
+1. Install project dependencies with npm or poetry
+2. Run the project tests as requested
+3. Start the backend or frontend applications
+4. Verify any functionality
+
+The repository appears to have been cloned incompletely or the source code was not committed. As a result, I cannot complete the setup instructions which require running the project tests (even if they don't pass) because the test files themselves are missing.
