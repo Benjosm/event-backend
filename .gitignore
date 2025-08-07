@@ -1,0 +1,61 @@
+# General
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE and Editor specific
+.vscode/
+.idea/
+*.iml
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# SQLite Database
+app.db
+app.db-journal
+
+# Logs
+*.log
+
+# Poetry related
+poetry.lock
+
+# Temporary files
+*.tmp
+*~
+
+# SPA Cy Models (downloaded/cached, not part of repo)
+# Note: spaCy models are often downloaded to a shared location or within the virtual env.
+# If they are placed directly in the project, you might need to adjust this.
+# Example if model is expected in 'app/models' and managed by poetry:
+# app/models/en_core_web_sm/
+
+# FastAPI Uvicorn server logs if any are generated directly.
+# Usually handled by stdout/stderr redirection in run scripts.
+
+# Vite build artifacts (frontend)
+dist/ # Assuming the frontend build output goes into a 'dist' folder
+
+# Frontend dependencies
+node_modules/
+
+# Environment variables (example)
+.env
+.env.*
+!.env.example
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+.pytest_cache/
