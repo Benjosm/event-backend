@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1754603692666" clover="3.2.0">
+  <project timestamp="1754603692666" name="All files">
+    <metrics statements="87" coveredstatements="82" conditionals="46" coveredconditionals="39" methods="13" coveredmethods="12" elements="146" coveredelements="133" complexity="0" loc="87" ncloc="87" packages="3" files="4" classes="4"/>
+    <package name="services">
+      <metrics statements="84" coveredstatements="82" conditionals="43" coveredconditionals="39" methods="12" coveredmethods="12"/>
+      <file name="ClusteringService.js" path="/usr/src/event-backend/src/services/ClusteringService.js">
+        <metrics statements="84" coveredstatements="82" conditionals="43" coveredconditionals="39" methods="12" coveredmethods="12"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="6" type="stmt"/>
+        <line num="35" count="13" type="stmt"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="40" count="32" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="7" type="stmt"/>
+        <line num="43" count="32" type="stmt"/>
+        <line num="47" count="6" type="stmt"/>
+        <line num="48" count="6" type="stmt"/>
+        <line num="50" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="70" count="16" type="cond" truecount="4" falsecount="1"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="74" count="16" type="cond" truecount="4" falsecount="0"/>
+        <line num="87" count="7" type="stmt"/>
+        <line num="88" count="7" type="stmt"/>
+        <line num="89" count="7" type="stmt"/>
+        <line num="91" count="7" type="stmt"/>
+        <line num="93" count="7" type="stmt"/>
+        <line num="94" count="13" type="stmt"/>
+        <line num="95" count="13" type="stmt"/>
+        <line num="97" count="13" type="stmt"/>
+        <line num="98" count="13" type="stmt"/>
+        <line num="99" count="13" type="stmt"/>
+        <line num="101" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="102" count="8" type="stmt"/>
+        <line num="104" count="13" type="stmt"/>
+        <line num="107" count="7" type="stmt"/>
+        <line num="118" count="13" type="stmt"/>
+        <line num="119" count="13" type="stmt"/>
+        <line num="120" count="39" type="stmt"/>
+        <line num="121" count="117" type="stmt"/>
+        <line num="122" count="117" type="cond" truecount="2" falsecount="0"/>
+        <line num="123" count="13" type="stmt"/>
+        <line num="127" count="13" type="stmt"/>
+        <line num="151" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="152" count="3" type="stmt"/>
+        <line num="155" count="13" type="cond" truecount="4" falsecount="0"/>
+        <line num="156" count="4" type="stmt"/>
+        <line num="159" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="160" count="1" type="stmt"/>
+        <line num="164" count="8" type="stmt"/>
+        <line num="165" count="8" type="stmt"/>
+        <line num="166" count="18" type="cond" truecount="4" falsecount="0"/>
+        <line num="167" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="168" count="5" type="stmt"/>
+        <line num="169" count="5" type="stmt"/>
+        <line num="171" count="13" type="stmt"/>
+        <line num="174" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="175" count="1" type="stmt"/>
+        <line num="179" count="7" type="stmt"/>
+        <line num="180" count="7" type="stmt"/>
+        <line num="183" count="7" type="stmt"/>
+        <line num="186" count="7" type="stmt"/>
+        <line num="187" count="13" type="stmt"/>
+        <line num="188" count="13" type="stmt"/>
+        <line num="190" count="13" type="stmt"/>
+        <line num="191" count="13" type="stmt"/>
+        <line num="193" count="13" type="stmt"/>
+        <line num="195" count="13" type="stmt"/>
+        <line num="196" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="197" count="6" type="stmt"/>
+        <line num="198" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="199" count="6" type="stmt"/>
+        <line num="206" count="7" type="stmt"/>
+        <line num="207" count="7" type="stmt"/>
+        <line num="208" count="13" type="stmt"/>
+        <line num="210" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="211" count="8" type="stmt"/>
+        <line num="214" count="13" type="stmt"/>
+        <line num="220" count="7" type="stmt"/>
+        <line num="230" count="8" type="stmt"/>
+        <line num="233" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="services.geocoding">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/usr/src/event-backend/src/services/geocoding/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="services.twitter">
+      <metrics statements="3" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.ts" path="/usr/src/event-backend/src/services/twitter/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="mockClient.ts" path="/usr/src/event-backend/src/services/twitter/mockClient.ts">
+        <metrics statements="3" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
