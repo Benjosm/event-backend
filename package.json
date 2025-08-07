@@ -1,0 +1,23 @@
+{
+  "name": "event-backend",
+  "version": "1.0.0",
+  "description": "## Overview **Global Pulse** is a real-time world events visualization platform that aggregates tweets about breaking events—including natural disasters, protests, concerts, and sports—using advanced location intelligence and natural language processing (NLP). The system clusters related tweets geographically and displays them on an interactive heatmap map, providing immediate spatial context for unfolding global events.",
+  "main": "jest.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benjosm/event-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Benjosm/event-backend/issues"
+  },
+  "homepage": "https://github.com/Benjosm/event-backend#readme",
+  "dependencies": {
+    "compromise": "^14.14.4"
+  }
+}
