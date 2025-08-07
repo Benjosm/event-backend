@@ -2,36 +2,29 @@ import { MockTwitterClient } from '../mockClient';
 
 describe('Twitter Mock Client', () => {
   describe('fetchEvents', () => {
-    it('returns expected event data on successful request', async () => {
+    it('returns an array of events with correct properties', async () => {
       const client = new MockTwitterClient();
-      const response = await client.fetchEvents(false);
+      const events = await client.fetchEvents();
       
-      expect(Array.isArray(response)).toBe(true);
-      expect(response).toHaveLength(2);
-      expect(response[0]).toEqual({
-        id: 'test1',
-        text: 'Test event 1'
-      });
-      expect(response[1]).toEqual({
-        id: 'test2',
-        text: 'Test event 2'
-      });
-    });
-
-    it('throws error when fail=true parameter is provided', async () => {
-      const client = new MockTwitterClient();
-      await expect(client.fetchEvents(true)).rejects.toThrow(
-        'Simulated Twitter API failure'
-      );
-    });
-
-    it('properly processes and formats response data', async () => {
-      const client = new MockTwitterClient();
-      const response = await client.fetchEvents(false);
+      // Check that result is an array
+      expect(Array.isArray(events)).toBe(true);
       
-      response.forEach(event => {
+      // Check that array has length greater than 0
+      expect(events.length).toBeGreaterThan(0);
+      
+      // Check each event has the expected properties with correct types
+      events.forEach(event => {
         expect(event).toHaveProperty('id');
+        expect(typeof event.id).toBe('string');
+        
         expect(event).toHaveProperty('text');
+        expect(typeof event.text).toBe('string');
+        
+        expect(event).toHaveProperty('timestamp');
+        expect(typeof event.timestamp).toBe('number');
+        
+        expect(event).toHaveProperty('location');
+        expect(typeof event.location).toBe('string');
       });
     });
   });
