@@ -5,9 +5,9 @@
  */
 
 // Export individual environment variables
-export const TWITTER_BEARER_TOKEN = import.meta.env.VITE_TWITTER_BEARER_TOKEN;
-export const GEOCODING_CACHE_CAPACITY = import.meta.env.VITE_GEOCODING_CACHE_CAPACITY
-  ? parseInt(import.meta.env.VITE_GEOCODING_CACHE_CAPACITY, 10)
+export const TWITTER_BEARER_TOKEN = process.env.VITE_TWITTER_BEARER_TOKEN;
+export const GEOCODING_CACHE_CAPACITY = process.env.VITE_GEOCODING_CACHE_CAPACITY
+  ? parseInt(process.env.VITE_GEOCODING_CACHE_CAPACITY, 10)
   : 100;
 
 // Validate required environment variables on app start

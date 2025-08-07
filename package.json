@@ -4,7 +4,9 @@
   "description": "## Overview **Global Pulse** is a real-time world events visualization platform that aggregates tweets about breaking events—including natural disasters, protests, concerts, and sports—using advanced location intelligence and natural language processing (NLP). The system clusters related tweets geographically and displays them on an interactive heatmap map, providing immediate spatial context for unfolding global events.",
   "main": "jest.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:integration": "jest src/services/twitter/apiClient.integration.spec.ts -i"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,16 @@
   },
   "homepage": "https://github.com/Benjosm/event-backend#readme",
   "dependencies": {
-    "compromise": "^14.14.4"
+    "axios": "^1.11.0",
+    "compromise": "^14.14.4",
+    "dotenv": "^17.2.1",
+    "httpx": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.0.0"
   }
 }
