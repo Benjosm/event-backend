@@ -1,4 +1,4 @@
-import httpx from 'httpx';
+import axios from 'axios';
 import { TWITTER_BEARER_TOKEN } from '../../config/env';
 
 /**
@@ -37,13 +37,13 @@ export class TwitterClient {
     const query = searchQueries.join(' OR ');
     
     try {
-      const response = await httpx.get(`${this.baseUrl}/tweets/search/recent`, {
+      const response = await axios.get(`${this.baseUrl}/tweets/search/recent`, {
         headers: {
           'Authorization': `Bearer ${this.bearerToken}`,
           'Content-Type': 'application/json',
         },
         params: {
-          query: query,
+          query,
           'tweet.fields': 'created_at,geo,entities',
           'place.fields': 'full_name,country',
           'expansions': 'geo.place_id',
@@ -51,25 +51,20 @@ export class TwitterClient {
         },
       });
 
-      // Handle HTTP error statuses
-      if (!response.ok) {
-        if (response.status === 401) {
-          throw new Error('Invalid authentication: Check your Twitter Bearer Token.');
-        } else if (response.status === 429) {
-          throw new Error('Rate limited: Too many requests to the Twitter API. Please wait and retry.');
-        } else if (response.status >= 500) {
-          throw new Error(`Twitter API server error: ${response.status}`);
-        } else {
-          throw new Error(`Twitter API request failed with status ${response.status}`);
-        }
-      }
+      const data = response.data;
 
-      // Parse the response data
-      let data;
-      try {
-        data = await response.json();
-      } catch (parseError) {
-        throw new Error('Failed to parse JSON response from Twitter API');
+      // Handle HTTP error statuses
+      if (response.status < 200 || response.status >= 300) {
+        const status = response.status;
+        if (status === 401) {
+          throw new Error('Invalid authentication: Check your Twitter Bearer Token.');
+        } else if (status === 429) {
+          throw new Error('Rate limited: Too many requests to the Twitter API. Please wait and retry.');
+        } else if (status >= 500) {
+          throw new Error(`Twitter API server error: ${status}`);
+        } else {
+          throw new Error(`Twitter API request failed with status ${status}`);
+        }
       }
 
       // Validate required structure
